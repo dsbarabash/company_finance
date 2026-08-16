@@ -39,8 +39,7 @@ SELECT
     pg_size_pretty(pg_total_relation_size('finance.' || tablename)) AS total_size,
     pg_size_pretty(pg_relation_size('finance.' || tablename)) AS table_size,
     pg_size_pretty(pg_total_relation_size('finance.' || tablename) - 
-                   pg_relation_size('finance.' || tablename)) AS index_size,
-    (SELECT COUNT(*) FROM finance.transactions) AS total_transactions
+                   pg_relation_size('finance.' || tablename)) AS index_size
 FROM pg_tables
 WHERE schemaname = 'finance'
 ORDER BY pg_total_relation_size('finance.' || tablename) DESC;
