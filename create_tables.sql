@@ -146,4 +146,3 @@ CREATE INDEX idx_transactions_department ON finance.transactions(department_id);
 CREATE INDEX idx_transactions_type ON finance.transactions(transaction_type_id);
 CREATE INDEX idx_transactions_counterparty ON finance.transactions(counterparty_id);
 CREATE INDEX idx_budget_plans_company_year ON finance.budget_plans(company_id, plan_year, plan_month);
-CREATE INDEX idx_employees_department ON finance.employees(department_id);
