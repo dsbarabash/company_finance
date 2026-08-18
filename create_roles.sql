@@ -10,6 +10,7 @@ ALTER SCHEMA finance OWNER TO finance_admin;
 GRANT USAGE ON SCHEMA finance TO finance_accountant;
 GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA finance TO finance_accountant;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA finance TO finance_accountant;
+GRANT EXECUTE ON ALL PROCEDURES IN SCHEMA finance TO finance_accountant;
 GRANT USAGE ON ALL SEQUENCES IN SCHEMA finance TO finance_accountant;
 
 -- Наблюдатель: только чтение
@@ -21,7 +22,13 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA finance
 GRANT SELECT, INSERT, UPDATE ON TABLES TO finance_accountant;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA finance 
-GRANT SELECT ON TABLES TO finance_viewer;
+GRANT USAGE ON SEQUENCES TO finance_accountant;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA finance 
-GRANT USAGE ON SEQUENCES TO finance_accountant;
+GRANT EXECUTE ON FUNCTIONS TO finance_accountant;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA finance 
+GRANT EXECUTE ON PROCEDURES TO finance_accountant;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA finance 
+GRANT SELECT ON TABLES TO finance_viewer;
