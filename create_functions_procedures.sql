@@ -244,7 +244,7 @@ BEGIN
         p_company_id, p_year, p_month,
         v_income, v_expense, v_profit, v_margin
     )
-    ON CONFLICT (id) DO UPDATE SET
+    ON CONFLICT (company_id, report_year, report_month) DO UPDATE SET -- Новый ON CONFLICT
         total_income = EXCLUDED.total_income,
         total_expense = EXCLUDED.total_expense,
         net_profit = EXCLUDED.net_profit,
